@@ -1,0 +1,1230 @@
+@import "blocks/vars";
+@import "blocks/mixin";
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+html {
+	box-sizing: border-box;
+	font-size: 14px;
+	@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+		font-size: 16px;
+	}
+	@media only screen and (min-width: 1440px) {
+		font-size: 20px;
+	}
+}
+
+  *, *:before, *:after {
+	box-sizing: inherit;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+  //--- Sticky footer ---
+body, html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.content {
+	flex: 1 0 auto;
+	
+}
+
+.footer {
+	flex-shrink: 0;
+	padding: 20px;
+	
+	
+}
+//---  ---
+
+.visually-hidden {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+}
+
+.center {
+	padding: 0 20px;
+	@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+		padding: 0 34px;
+	}
+	@media only screen and (min-width: 1440px) {
+		padding: 0 140px;
+	}
+}
+
+.button {
+	border: none;
+	cursor: pointer;
+	width: 280px;
+	height: 48px;
+	background-color: $mainColor;
+	color: #ffffff;
+	border-radius: 30px;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 0.38px;
+	text-transform: uppercase;
+	transition: all 0.2s linear 0s;
+	@media only screen and (min-width: 1440px) {
+		width: 360px;
+	}
+		&:hover{
+			box-shadow: 0 4px 15px rgba(27, 170, 235, 0.45);
+		}
+		&:active {
+			background-color: $mainColorPressed;
+		}
+}
+
+.display__mobile {
+	@media only screen and (min-width: 320px) and (max-width: 767.9px) {
+		display: none;
+	}
+}
+
+.header {
+	background-image: url(../img/header-background.jpg);
+	background-position: 90%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 50vh;
+	margin-bottom: 21px;
+	@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+		min-height: 415px;
+		background-position: 70%;
+		margin-bottom:0;
+	}
+	@media only screen and (min-width: 1440px) {
+		min-height: 525px;
+		margin-bottom:0;
+	}
+		
+		&__top {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 25px;
+			margin-bottom: 3.4375rem;
+		}
+		&__logo {
+			max-height: 29px;
+		}
+		&__menu {
+			list-style: none;
+			display: flex;
+			align-items: center;
+	
+			@media only screen and (min-width: 320px) and (max-width: 765.9px) {
+				display: none;
+			}
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				& li + li {
+					margin-left: 30px;
+				}
+			}
+			@media only screen and (min-width: 1440px) {
+				& li + li {
+					margin-left: 60px;
+				}
+			}
+		}
+		&__link {
+			font-size: 0.875rem;
+			font-weight: 400;
+			color: #ffffff;
+				&:hover {
+					color: $mainColor;
+				}
+		}
+		&__burger-menu {
+			@media (min-width: 768px) {
+				display: none;
+			}
+		}
+		&__burger-lines {
+			width: 40px;
+			height: 4px;
+			background-color: #ffffff;
+			margin-bottom: 8px;
+		}
+		&__content {
+			@media only screen and (min-width: 320px) and (max-width: 765.9px) {
+				display: none;
+			}
+		}
+		&__heading {
+			@include heading(2.75rem, #ffffff);
+			width: 25rem;
+			margin-bottom: 1.125rem;
+		}
+		&__text {
+			@include text(1.75rem, #ffffff);
+			margin-bottom: 2.25rem;
+		}
+		&__button {
+			margin-bottom: 9rem;
+		}
+}
+
+.top {
+	@media (min-width: 768px) {
+		display: none;
+	}
+
+		&__heading {
+			@include heading(2.428rem);
+			text-transform: uppercase;
+			margin-bottom: 9px;
+		}
+		&__text {
+			color: #000000;
+			font-size: 1.7142rem;
+			font-weight: 700;
+			margin-bottom: 18px;
+		}
+		&__button {
+			margin-bottom: 27px;
+		}
+}
+
+.about-us {
+	background-color: $blockColor;
+	padding-top: 17px;
+	padding-bottom: 17px;
+	@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		
+	}
+	@media only screen and (min-width: 1440px) {
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding-top: 62px;
+	}
+	
+		&__image {
+			max-width:100%;
+			max-height: 100%;
+			margin-bottom: 25px;
+			display: block;
+			order: 1;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 370px;
+				margin-left: 26px;
+
+			}
+			@media only screen and (min-width: 1440px) {
+				margin-right: 97px;
+			}
+		}
+		&__heading {
+			@include heading(1.2857rem);
+			margin-bottom: 10px;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				flex-grow: 3;
+				order: 3;
+				font-size: 2.5714rem;	
+			}
+			@media only screen and (min-width: 1440px) {
+				display: none;
+			}
+		}
+		&__heading2 {
+			@include heading(1.2857rem);
+			margin-bottom: 22px;
+			margin-top: 18px;
+			@media only screen and (min-width: 320px) and (max-width: 1439.9px) {
+				display: none;
+			}
+		}
+		&__text {
+			@include text(0.857rem);
+			margin-bottom: 15px;
+			width: 281px;
+			@media only screen and (min-width: 1440px) {
+				width: 440px;
+				margin-bottom: 34px;
+			}
+			
+		}
+}
+
+.steps {
+	display: grid;
+	grid-gap: 30px;
+	padding-top: 35px;
+	padding-bottom: 30px;
+	
+		&__single-step {
+			width: 280px;
+		}
+		&__image {
+			max-width: 100%;
+			margin-bottom: 24px;
+		}
+		&__heading {
+			@include heading;
+			margin-bottom: 10px;
+		}
+		&__text {
+			@include text;
+			@media only screen and (min-width: 1440px) {
+				width: 450px;
+				
+			};
+		}
+		@media only screen and (min-width: 768px) {
+			grid-gap: 50px;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+		}
+		@media only screen and (min-width: 1440px) {
+			justify-content: center;
+			justify-items: center;
+			grid-template-columns: 465px 465px;
+			
+		}
+}
+
+/* 
+.steps {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 1.9285rem;
+	
+	@media only screen and (min-width: 768px) {
+		justify-content: center;	
+	}
+	
+		&__single-step {
+			flex-basis: 280px;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+			
+				&:nth-of-type(2n+1) {
+					margin-right: 80px;
+				}
+			}
+			@media only screen and (min-width: 1440px) {
+				flex-basis: 460px;
+				&:nth-of-type(2n+1) {
+					margin-right: 139px;
+				}
+			}
+		}
+		&__image {
+			max-width: 100%;
+			margin-bottom: 24px;
+		}
+		&__heading {
+			@include heading;
+			margin-bottom: 10px;
+		}
+		&__text {
+			@include text;
+			margin-bottom: 30px;
+		}
+}
+*/
+
+.delivery {
+	background-color: $blockColor;
+	padding-top: 23px;
+	padding-bottom: 23px;
+	@media only screen and (min-width: 768px) {
+		display: flex;
+		align-items: center; 
+	}
+	@media only screen and (min-width: 1440px) {
+		padding-top: 64px;
+		padding-bottom: 64px;
+		justify-content: center;
+	}
+
+		&__heading {
+			@include heading;
+			margin-bottom: 12px;
+			flex-basis: 392px;
+			@media (min-width: 768px) {
+				margin-right: 40px;
+				flex-basis: 720px;
+				
+			}
+		}
+		&__button {
+			
+		}
+}
+
+.callback {
+	background-color: $mainColor;
+	padding-top: 32px;
+	padding-bottom: 7px;
+	@media only screen and (min-width: 768px) {
+		display: flex;
+		justify-content: space-between;
+	}
+	@media only screen and (min-width: 1440px) {
+		padding-bottom: 32px;
+		justify-content: center;
+		align-items: center;
+	}
+
+		&__left {
+			@media only screen and (min-width: 1440px) {
+				margin-right: 80px;
+			}
+		}
+		&__heading {
+			@include heading(2rem, #ffffff);
+			text-transform: uppercase;
+			margin-bottom: 10px;
+		}
+		&__text {
+			@include text(1rem, #ffffff);
+			line-height: 13.13px;
+			margin-bottom: 15px;
+		}
+		&__tel {
+			width: 278px;
+			height: 48px;
+			border-radius: 30px;
+			border: 1px solid #ffffff;
+			color: #ffffff;
+			font-size: 16px;
+			font-weight: 400;
+			background-color: $mainColor;
+			padding: 14px 24px;
+			margin-bottom: 9px;
+			display: block;
+				&::placeholder {
+					color: #ffffff;
+				}
+				&:focus {
+					outline: none;
+					box-shadow: 
+					0 0 0 3px $mainColor,
+					0 0 0 6px #ffffff;
+				}
+			@media only screen and (min-width: 1440px) {
+				width: 360px;
+			}
+		}
+		&__button {
+			margin-bottom: 7px;
+			display: block;
+				&--secondColor {
+					background-color: $secondColor;
+					color: $textColor;
+						&:hover {
+							box-shadow: 0 4px 20px rgba(255, 204, 0, 0.55);
+						}
+						&:active {
+							background-color: $secondColorPressed;
+						}
+				}
+		}
+		
+		&__label {
+			color: #ffffff;
+			font-size: 0.7142rem;
+			font-weight: 400;
+		}
+}
+
+.reviews {
+	padding-top: 20px;
+	padding-bottom: 30px;
+	position: relative;
+	@media only screen and (min-width: 320px) and (max-width: 765.9px) {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+		}
+		&__flex {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		&__heading {
+			@include heading(2rem, $textColor)
+			margin-bottom: 20px;
+			align-self: flex-start;
+			
+		}
+		&__single-review {
+			padding: 0 24px;
+				&--display-none {
+					@media only screen and (min-width: 320px) and (max-width: 765.9px) {
+						display: none;
+					}
+				}
+		}
+		&__top {
+			display: flex;
+			margin-bottom: 13px;
+		}
+		&__image {
+			width: 100px;
+			height: 100px;
+			margin-right: 19px;
+			margin-top: 5px;
+			@media only screen and (min-width: 1440px) {
+				width: 160px;
+				height: 160px;
+			}
+		}
+		&__name {
+			font-size: 1.8571rem;
+		}
+		&__firm {
+			font-size: 1.2857rem;
+			margin-bottom: 9px;
+		}
+		&__destination {
+			font-size: 0.7142rem;
+		}
+		&__text {
+			font-size: 0.85714rem;
+			width: 250px;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 280px;
+			}
+			@media only screen and (min-width: 1440px) {
+				width: 460px;
+			}
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			width: 12px;
+			height: 12px;
+			border-bottom: 2px solid #C4C4C4;
+			border-left: 2px solid #C4C4C4;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+			left: 5%;
+			top: 60%;
+			@media only screen and (min-width: 1440px) {
+				width: 20px;
+				height: 20px;
+				left: 10%;
+			}
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			width: 12px;
+			height: 12px;
+			border-top: 2px solid #C4C4C4;
+			border-right: 2px solid #C4C4C4;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+			right: 5%;
+			top: 60%;
+			@media only screen and (min-width: 1440px) {
+				width: 20px;
+				height: 20px;
+				right: 10%;
+			}
+		}
+}
+
+.advantages {
+	background-color: $blockColor;
+	padding-top: 23px;
+
+		&__heading {
+			@include heading(2rem, $textColor)
+			margin-bottom: 45px;
+		}
+		&__flex {
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		&__icon {
+			display: block;
+			position: relative;
+			width: 82px;
+			margin-right: 11px;
+			margin-bottom: 34px;
+			text-align: center;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 100px;
+				margin-right: 15px;
+			}	
+			@media only screen and (min-width: 1440px) {
+				width: 166px;
+				margin-right: 40px;
+			}
+		}
+		&__imagebox {
+			position: relative;
+			display: flex;
+			align-items: center;
+			@media only screen and (min-width: 1440px) {
+				width: 166px;
+				height: 166px;
+			}
+				&:before {
+					content: "";
+					position: absolute;
+					width: 82px;
+					height: 82px;
+					background-color: #ffffff;
+					border-radius: 50%;
+					top: -27px;
+					left: 0;
+					display: block;
+					z-index: 0;
+					@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+						width: 100px;
+						height: 100px;
+					}
+					@media only screen and (min-width: 1440px) {
+						width: 166px;
+						height: 166px;
+						top: 0;
+					}
+				}
+		}
+		&__image {
+			
+			position: relative;
+			margin: 0 auto;
+			display: block;
+			@media only screen and (min-width: 1440px) {
+				&.icon__car {
+					width: 84px;
+					height: 49px;
+				}
+				&.icon__note {
+					width: 62px;
+					height: 76px;
+				}
+				&.icon__badge {
+					width: 66px;
+					height: 66px;
+				}
+				&.icon__hand {
+					width: 68px;
+					height: 61px;
+				}
+				&.icon__headset {
+					width: 68px;
+					height: 66px;
+				}
+				&.icon__barcode {
+					width: 74px;
+					height: 58px;
+				}
+			}
+		}
+		&__text {
+			position: relative;
+			margin-top: 30px;
+			
+			@include text(0.7142rem, $textColor);
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				margin-top: 49px;
+			}
+			@media only screen and (min-width: 1440px) {
+				font-size: 18px;
+			}
+			
+			&.icon__car:after {
+				content: "";
+				position: absolute;
+				background-image: url(../img/icon-car.svg);
+				top: -63px;
+				left: 14px;
+				width: 58px;
+				height: 34px;
+				display: block;
+			}
+		}
+
+}
+
+.warranty {
+	padding-top: 25px;
+	padding-bottom: 20px;
+	@media only screen and (min-width: 1440px) {
+				padding-bottom: 64px;
+			}
+
+		&__heading {
+			@include heading(2rem, $textColor);
+			margin-bottom: 36px;
+		}
+		&__flex {
+				list-style: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+		}
+		&__icon-block {
+			display: flex;
+			justify-content: center;
+			position: relative;
+			margin-bottom: 30px;
+			@media only screen and (min-width: 768px)  {
+				flex-direction: column;
+				align-items: center;
+			}
+
+				&:before {
+					content: "";
+					position: absolute;
+					width: 12px;
+					height: 12px;
+					border-bottom: 2px solid #C4C4C4;
+					border-left: 2px solid #C4C4C4;
+					box-sizing: border-box;
+					transform: rotate(45deg);
+					left: 0;
+					top: 10%;
+					@media only screen and (min-width: 768px) {
+						display: none;
+					}
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					width: 12px;
+					height: 12px;
+					border-top: 2px solid #C4C4C4;
+					border-right: 2px solid #C4C4C4;
+					box-sizing: border-box;
+					transform: rotate(45deg);
+					right: 0;
+					top: 10%;
+					@media only screen and (min-width: 768px) {
+						display: none;
+					}
+				}
+		}
+		&__icon {
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 230px;
+			}
+			&:not(:first-of-type) {
+				@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				margin-left: 16px;
+				}
+			}
+		}	
+		&__imagebox {
+			position: relative;
+			display: flex;
+			width: 62px;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				margin-bottom: 30px;
+			}
+			@media only screen and (min-width: 1440px) {
+				margin-bottom: 60px;
+				margin-top: 27px;
+			}
+				&:before {
+						content: "";
+						position: absolute;
+						width: 62px;
+						height: 62px;
+						background-color: $blockColor;
+						border-radius: 50%;
+						top: -20px;
+						left: 0;
+						display: block;
+						z-index: 0;
+						@media only screen and (min-width: 1440px) {
+							width: 160px;
+							height: 160px;
+							top: -45px;
+							left: -45px;
+						}
+				}
+		}
+		&__image {
+			z-index: 1;
+			margin: 0 auto;
+			display: block;
+			width: 28px;
+			height: 26px;
+			@media only screen and (min-width: 1440px) {
+				width: 75px;
+				height: 70px;
+			}
+		}
+		&__icon-heading {
+			font-size: 1.1428rem;
+			line-height: 19px;
+			margin-left: 10px;
+		}
+		&__text {
+			padding: 0 40px;
+			@include text;
+			margin-bottom: 15px;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				padding: 0;
+			}
+		}
+		&__button {
+			width: 230px;
+			margin: 0 auto;
+			display: block;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 220px;
+			}
+			@media only screen and (min-width: 1440px) {
+				width: 360px;
+			}
+		}
+}
+
+.doubts {
+	background-color: $mainColorPressed;
+	padding-top: 35px;
+	padding-bottom: 50px;
+	
+		
+		&__heading {
+			@include heading(2rem, #000000);
+			margin-bottom: 20px;
+		}
+		&__flex {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			@media only screen and (min-width: 1440px) {
+				flex-direction: row;
+			}
+		}
+		&__block {
+			margin-right: 30px;
+		}
+		&__single {
+			background: #FFFFFF;
+			border-radius: 32px;
+			list-style: none;
+			position: relative;
+			margin-bottom: 10px;
+			max-width: 558px;
+			
+				& .doubts__summary:after {
+					position: absolute;
+					content: "";
+					width: 8px;
+					height: 8px;
+					border-right: 2px solid $mainColor;
+					border-bottom: 2px solid $mainColor;
+					box-sizing: border-box;
+					transform: rotate(45deg);
+					top: 45%;
+					right: 20px;
+					
+				}
+				/*
+				&[open] .doubts__summary:after {
+					position: absolute;
+					content: "";
+					width: 8px;
+					height: 8px;
+					border-left: 2px solid $mainColor;
+					border-top: 2px solid $mainColor;
+					box-sizing: border-box;
+					transform: rotate(45deg);
+					top: 45%;
+					right: -15px;
+				}
+				*/
+				
+		}
+		&__summary {
+			position: relative;
+			padding: 15px 20px;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				padding: 14px 30px;
+			}
+			@media only screen and (min-width: 1440px) {
+				padding: 18px 40px 12px 30px;
+			}	
+				&::-webkit-details-marker {
+					display: none;
+				}
+				&:focus {
+					color: $mainColor;
+					outline: none;
+				}
+			
+		}
+		&__text-box {
+			background-color: $blockColor;
+			border-bottom-left-radius: 32px;
+			border-bottom-right-radius: 32px;
+		}
+		&__text {
+			padding: 10px 24px 20px 24px;
+			
+		}
+}
+
+.logos {
+	position: relative;
+	@media only screen and (min-width: 768px) {
+		display: flex;
+		justify-content: center;
+	}
+	&__block {
+		text-align: center;
+		margin: 20px 0;
+	}
+	&__image {
+		margin-right: 15px;
+		width: 66px;
+		@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+			margin-right: 10px;
+		}
+		@media only screen and (min-width: 1440px) {
+			width: 94px;
+			margin-right: 33px;
+		}
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		width: 12px;
+		height: 12px;
+		border-bottom: 2px solid #C4C4C4;
+		border-left: 2px solid #C4C4C4;
+		box-sizing: border-box;
+		transform: rotate(45deg);
+		left: 5%;
+		top: 50%;
+		@media only screen and (min-width: 1440px) {
+			width: 20px;
+			height: 20px;
+			left: 10%;
+		}
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		width: 12px;
+		height: 12px;
+		border-top: 2px solid #C4C4C4;
+		border-right: 2px solid #C4C4C4;
+		box-sizing: border-box;
+		transform: rotate(45deg);
+		right: 5%;
+		top: 50%;
+		@media only screen and (min-width: 1440px) {
+			width: 20px;
+			height: 20px;
+			right: 10%;
+		}
+	}
+}
+
+.footer {
+	background-color: $blockColor;
+	padding-top: 15px;
+	display: flex;
+	flex-direction: column;
+	
+		&__top {
+			@media only screen and (min-width: 768px) {
+				display: flex;
+				
+			}
+			
+		}
+		&__heading {
+			margin-bottom: 20px;
+			margin-right: 20px;
+			color: #000000;
+			font-size: 1.2857rem;
+			
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 220px;
+			}	
+				
+		}
+		&__form {
+			margin-bottom: 25px;
+			margin-right: auto;
+			margin-left: auto;
+			@media only screen and (min-width: 768px) {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+			}
+		}
+		&__tel {
+			width: 278px;
+			height: 48px;
+			border-radius: 30px;
+			border: 1px solid $textColor;
+			color:$textColor;
+			font-size: 16px;
+			font-weight: 400;
+			background-color: $blockColor;
+			padding: 14px 24px;
+			margin-bottom: 9px;
+			display: block;
+			margin-right: 20px;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 220px;
+			}	
+			@media only screen and (min-width: 1440px) {
+				width: 320px;
+			}
+				&::placeholder {
+					color: $textColor;
+				}
+				&:focus {
+					outline: none;
+					box-shadow: 
+					0 0 0 3px $blockColor,
+					0 0 0 6px $textColor;
+				}
+			
+		}
+		&__button {
+			margin-bottom: 7px;
+			margin-right: 20px;
+			display: block;
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				width: 220px;
+			}
+			@media only screen and (min-width: 1440px) {
+				width: 360px;
+			}
+				
+		}
+		
+		&__label {
+			color: #9E9E9E;
+			font-size: 0.7142rem;
+			font-weight: 400;
+		}
+		&__block {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: relative;
+			margin-bottom: 36px;
+				&:before {
+					position: absolute;
+					content: "";
+					width: 100%;
+					height: 1px;
+					background-color: #C4C4C4;
+					top: -12px;
+					left: 0;
+				}
+				&:after {
+					position: absolute;
+					content: "";
+					width: 100%;
+					height: 1px;
+					background-color: #C4C4C4;
+					bottom: -12px;
+					left: 0;
+				}
+		}
+		&__logo {
+			width: 140px;
+			margin-bottom: 8px;
+			margin-right: 10px;
+			
+		}
+		&__menu {
+			list-style: none;
+			display: flex;
+			align-items: center;
+	
+			@media only screen and (min-width: 320px) and (max-width: 765.9px) {
+				display: none;
+			}
+			@media only screen and (min-width: 768px) and (max-width: 1439.9px) {
+				& li + li {
+					margin-left: 25px;
+				}
+			}
+			@media only screen and (min-width: 1440px) {
+				& li + li {
+					margin-left: 77px;
+				}
+			}
+		}
+		&__link {
+			font-size: 0.875rem;
+			font-weight: 400;
+			color: #000000;
+				&:hover {
+					color: $mainColor;
+				}
+		}
+		&__burger-menu {
+			@media (min-width: 768px) {
+				display: none;
+			}
+		}
+		&__burger-lines {
+			width: 40px;
+			height: 4px;
+			background-color: $textColor;
+			margin-bottom: 8px;
+		}
+		&__copyright {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 15px;
+		}
+		&__icons {
+			display: flex;
+			list-style: none;
+			@media only screen and (min-width: 320px) and (max-width: 767.9px) {
+				display: none;
+			}
+			font-size: 15px;
+		}
+		&__icon-link {
+			color: $mainColor;
+			margin-right: 16px;
+			
+				
+		}
+		&__text {
+			color: #000000;
+			font-size: 0.7142rem;
+		}
+}
+
+
+
+.fa-circle {
+	color: $mainColor;
+}
+
+.footer__icon-link:hover .fa-circle {
+	color: $textColor;
+}
+
+.modal-callback {
+	padding: 65px 40px 45px 40px;
+	background-color: #ffffff;
+	width: 440px;
+	min-height: 336px;
+	border-radius: 32px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -220px;
+	margin-top: -168px;
+	z-index: 10;
+	display: none;
+		&__title {
+			color: #000000;
+			font-size: 20px;
+			margin-bottom: 29px;
+		}
+		&__input {
+			width: 360px;
+			height: 48px;
+			border: 1px solid $mainColor;
+			border-radius: 30px;
+			padding: 14px 20px;
+			font-size: 16px;
+				&::placeholder {
+					color: $mainColor;
+				}
+				&:focus {
+					outline: none;
+					box-shadow: 
+					0 0 0 3px #ffffff,
+					0 0 0 6px $mainColor;
+				}
+		}
+		&__name {
+			margin-bottom: 13px;
+				
+		}
+		&__tel {
+			margin-bottom: 13px;
+		}
+		&__button {
+			&:focus {
+				outline: none;
+				box-shadow: 
+				0 0 0 3px #ffffff,
+				0 0 0 6px $mainColor;
+			}
+		}
+		
+}
+
+.modal__overlay {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	filter: blur(15px);
+	z-index: 1;
+	display: none;
+}
+
+.modal-callback__close {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	width: 22px;
+	height: 22px;
+	font-size: 0;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	display: none;
+}
+
+.modal-callback__close::before,
+.modal-callback__close::after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 2px;
+	width: 19px;
+	height: 1px;
+	background-color: $mainColor;
+}
+
+.modal-callback__close::before {
+	transform: rotate(45deg);
+}
+
+.modal-callback__close::after {
+	transform: rotate(-45deg);
+}

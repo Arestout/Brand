@@ -1,0 +1,23 @@
+
+@mixin heading($size: 1.857rem, $color: $textColor) {
+	color: $color;
+    font-size: $size;
+    font-weight: 700;
+}
+
+@mixin text($size: 1rem, $color: $textColor) {
+	color: $color;
+    font-size: $size;
+    font-weight: 400;
+}
+
+@mixin button ($width: 280px, $height: 48px, $bgColor: $mainColor) {
+    width: $width;
+    height: $height;
+    background-color: $bgColor;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
